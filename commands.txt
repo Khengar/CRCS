@@ -1,2 +1,13 @@
 git clone "https://github.com/Khengar/CRCS"
 
+cd CRCS
+
+python -m venv virt
+
+source virt/Scripts/activate
+
+pip install pandas scikit-learn numpy
+
+python train_model.py
+
+python predict_crop.py
