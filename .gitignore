@@ -1,3 +1,5 @@
+#Ignoring virtual environment
 .virt/
 
-.crop_model.joblib
+#Ignoring the trained model 
+*.joblib
