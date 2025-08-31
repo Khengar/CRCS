@@ -1,0 +1,28 @@
+{
+  "name": "croprcs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khengar/CRCS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khengar/CRCS/issues"
+  },
+  "homepage": "https://github.com/Khengar/CRCS#readme",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "expressjs": "^1.0.1",
+    "nodemon": "^3.1.10"
+  }
+}

@@ -3,3 +3,13 @@
 
 #Ignoring the trained model 
 *.joblib
+
+experiment.py
+
+
+# Node.js
+node_modules/
+npm-debug.log*
+.npm
+.env*
+.DS_Store
