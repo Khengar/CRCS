@@ -14,3 +14,4 @@ flask --app server.js run ---> Runs API server (Python)
 
 How python code works?
  - Using scikit I trained the model on the basis of 'Crop_recommendation.csv'
+ - You can follow 'commands.txt'
