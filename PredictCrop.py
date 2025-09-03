@@ -6,7 +6,7 @@ import pandas as pd
 from google import genai
 from google.genai import types
 
-GOOGLE_API = "AIzaSyDi_HxYo9e0G2iY5w-G5_26yKENpQWMCOY"
+GOOGLE_API = "YOUR_API_KEY"
 
 # --- 1. Rate Limiter Class ---
 # This class tracks request timestamps to enforce a rate limit.
