@@ -8,6 +8,7 @@ requirements.txt is mentioned
 and
 npm i can be run to install the node dependencies
 
+npm i
 nodemon start server.js ---> Runs Frontend server (JS)
 flask --app server.js run ---> Runs API server (Python)
 
