@@ -6,7 +6,7 @@ python -m venv virt
 
 source virt/Scripts/activate
 
-pip install pandas scikit-learn numpy
+pip install pandas scikit-learn numpy Flask
 
 python train_model.py
 

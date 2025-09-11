@@ -6,6 +6,8 @@
     --text-dark: #333;
     --text-light: #777;
     --input-border: #DDE2E7;
+    --primary-purple: #9C27B0;
+    --background-light: #F5F5F5;
 }
 
 * {
@@ -204,6 +206,21 @@ input[type="text"]:focus {
 .button-submit:hover{
     background-color: rgb(86, 236, 88);
     transition: 0.7s;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+/* Enhanced form styling */
+.form-group:last-of-type {
+    margin-top: 2rem;
+}
+
+.button-submit {
+    width: 100%;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
 }
 
 /* --- Modal Pop-up Styles --- */
@@ -217,30 +234,230 @@ input[type="text"]:focus {
 .modal-overlay.active { display: flex; opacity: 1; }
 
 .modal-content {
-    background-color: white; padding: 2rem 2.5rem; border-radius: 12px;
+    background-color: white; padding:2rem 2.5rem; border-radius: 12px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2); text-align: center;
-    position: relative; max-width: 400px; width: 90%;
+    position: relative; max-width: 800px; width: 100%;
     transform: scale(0.9); transition: transform 0.3s ease;
 }
 .modal-overlay.active .modal-content { transform: scale(1); }
 
 .modal-header { color: var(--primary-green); margin-bottom: 1.5rem; }
-.modal-header h3 { font-size: 1.5rem; font-weight: 600; }
-.modal-content p { color: var(--text-light); margin-bottom: 1rem; font-size: 1rem; }
+.modal-header h1 { font-size: 1.8rem; font-weight: 600; margin-bottom: 0.5rem; }
+.modal-header h2 { font-size: 1.3rem; font-weight: 500; margin-bottom: 1rem; }
+.modal-content p { color: var(--primary-green); margin-bottom: 1rem; font-size: 1rem; }
+
 .modal-crop-name-display {
     background-color: var(--background-light);
     color: var(--primary-green);
-    font-size: 1.75rem; font-weight: 700;
+    font-size: 2rem; font-weight: 1000;
+    padding: 1.2rem; border-radius: 8px;
+    margin: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.modal-crop-name-display-fertilizer{
+    background-color: var(--background-light);
+    color: var(--primary-purple);
+    font-size: 2rem; font-weight: 1000;
     padding: 1rem; border-radius: 8px;
 }
 .modal-crop-name-display-content {
     background-color: var(--background-light);
     color: var(--primary-green);
-    font-size: 0.8rem;
-    padding: 0.3rem; border-radius: 8px;
+    font-size: 1.12rem;
+    padding: 1rem; border-radius: 8px;
+    margin: 1rem 0;
+    line-height: 1.6;
+    text-align: left;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-error-display {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #c62828;
+}
+
+.modal-crop-name-display-fertilizer {
+    background: linear-gradient(135deg, var(--background-light) 0%, #f0f8ff 100%);
+    color: var(--primary-purple);
+    font-size: 2rem;
+    font-weight: 1000;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    border: 2px solid var(--primary-purple);
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-crop-name-display-fertilizer::before {
+    content: '🌱';
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    opacity: 0.3;
 }
 .modal-close-btn {
     position: absolute; top: 10px; right: 15px; background: none; border: none;
     font-size: 2rem; color: #aaa; cursor: pointer; transition: color 0.2s ease;
 }
 .modal-close-btn:hover { color: #333; }
+
+/* Additional styling for better modal appearance */
+.modal-content h2 {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+.modal-content h2:first-of-type {
+    margin-top: 0;
+}
+
+/* Success state styling */
+.modal-content.success .modal-crop-name-display,
+.modal-content.success .modal-crop-name-display-fertilizer {
+    border: 2px solid var(--primary-green);
+}
+
+/* Error state styling */
+.modal-content.error .modal-error-display {
+    border: 2px solid #c62828;
+}
+
+/* Responsive modal adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 1.5rem;
+        margin: 20px;
+        max-width: calc(100% - 40px);
+    }
+    
+    .modal-crop-name-display,
+    .modal-crop-name-display-fertilizer {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .modal-crop-name-display-content {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}
+
+/* Loading and state indicators */
+.button-submit:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.button-submit:disabled:hover {
+    background-color: #ccc;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Success and error message styling */
+.success-message {
+    color: var(--primary-green);
+    background-color: #e8f5e9;
+    border: 1px solid var(--primary-green);
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.error-message {
+    color: #c62828;
+    background-color: #ffebee;
+    border: 1px solid #c62828;
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+/* Enhanced input focus states */
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.2);
+    transform: translateY(-1px);
+    transition: all 0.3s ease;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Modal animations */
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-overlay.active {
+    animation: modalFadeIn 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    animation: modalSlideIn 0.4s ease;
+}
+
+/* Hover effects for interactive elements */
+.modal-crop-name-display:hover,
+.modal-crop-name-display-fertilizer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Loading spinner for button */
+.button-submit.loading {
+    position: relative;
+    color: transparent;
+}
+
+.button-submit.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
